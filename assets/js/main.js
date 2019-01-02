@@ -53,24 +53,7 @@
                 side: 'right'
             });
 
-        // load csv data to web page
-        function format_link(link) {
-            if (link)
-                return "<a href='" + link + "' target='_blank'>" + link + "</a>";
-            else
-                return "";
-        }
 
-        CsvToHtmlTable.init({
-            csv_path: '../data/review.csv',
-            element: 'table-container',
-            allow_download: true,
-            csv_options: { separator: ',', delimiter: '"' },
-            datatables_options: { "paging": false },
-            custom_formatting: [
-                [4, format_link]
-            ]
-        });
 
     });
 
