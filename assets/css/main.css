@@ -1789,7 +1789,7 @@ header.narrow {
 
 @media screen and (max-width: 1280px) {
     header.narrow {
-        max-width: 75%;
+        max-width: 88%;
     }
 }
 
@@ -3274,8 +3274,9 @@ button.alt:active,
     background-color: #1E2832;
     color: rgba(255, 255, 255, 0.75);
     background-attachment: fixed;
-    background-image: url("images/overlay.png"), url("../../images/pic11.jpg");
+    background-image: url("images/overlay.png"), url("../../images/section_bg.jpg");
     background-size: cover;
+    background-position-x: center;
 }
 
 .wrapper.style3 input,
@@ -3564,7 +3565,7 @@ body.landing {
 }
 
 #header {
-    background: #07090c;
+    background: rgba(7, 9, 12, 0.9);
     color: rgba(255, 255, 255, 0.75);
     cursor: default;
     height: 3.25em;
@@ -3807,9 +3808,10 @@ body.landing {
     background-color: #1E2832;
     color: rgba(255, 255, 255, 0.75);
     background-attachment: fixed;
-    background-image: url("images/overlay.png"), url("../../images/banner_new.jpg");
+    background-image: url("images/overlay.png"), url("../../images/banner_bg_3.jpg");
     background-size: cover;
     text-align: center;
+    background-position-x: center;
 }
 
 #banner input,
