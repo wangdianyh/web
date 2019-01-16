@@ -7,7 +7,7 @@
 <html>
 
 <head>
-    <title>Playful Kiss (2010) Rating Review - Data Summary</title>
+    <title>Playful Kiss (2010) Rating Review - About Drama</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -23,6 +23,10 @@
         
         .graph-box p {
             text-align: left;
+        }
+        
+        .graph-box .graph {
+            margin-top: 0px;
         }
         
         @media screen and (max-width: 736px) {
@@ -53,43 +57,38 @@
             <li><a href="author.html">About Author</a></li>
         </ul>
     </nav>
+    <!-- top banner-->
+    <section id="three" class="wrapper style3 special">
+        <div class="inner">
+            <header class="major narrow	">
+                <h2>What are Fans Talking About Most</h2>
+                <p></p>
+                <p>Based on the reviews crawled from mydramalist, I use NLTK to analyse the text and find out the words that fans discussed most about this drama based on the words frequency in reviews.</p>
+                <p>I also use word cloud to generate a word cloud graph to give people a straitforward impression of the frequent keywords.</p>
+            </header>
 
+            <ul class="actions">
+                <li><a href="#main" class="button big alt" id='scroll-down'>More</a></li>
+            </ul>
+        </div>
+    </section>
     <!-- Main -->
     <section id="main" class="wrapper">
         <div class="container">
             <header class="major special">
-                <h2>Data Summarise</h2>
-                <!-- <p>from https://mydramalist.com/20-playful-kiss/reviews</p> -->
+                <!--<h2>Data Summarise</h2>
+                 <p>from https://mydramalist.com/20-playful-kiss/reviews</p> -->
             </header>
         </div>
         <div class="container">
             <div class="graph-box">
-                <h3>'Playful Kiss(2010) Rating Details</h3>
-                <img class="graph" src="images/average_rating.png">
-                <p>'Playful Kiss(2010)' gets the highest rating in 'cast' category, while its 'rewatch' value is the losest in the 5 rating categories.</p>
-                <p>Also, it seems that this view is supported by other users on MyDramaList</p>
+                <!--<h3>Keywords discussed most in reviews</h3>-->
+                <img class="graph" src="images/word_cloud.png">
+                <p>After filtered the no meaningful words, I found that the drama characters and casts are cared most by the fans, which also matches the average rating result that 'cast' category gets higher mark than 'story' and 'rewatch' value.</p>
+                <p>It is noticable that besides the leading roles - <b>Ha Ni(91)</b> and <b>Seung Jo(55)</b>, even supporting roles like <b>Seung Jo mother(6)</b> and <b>Ha Ni friend(3)</b> are discussed in reviews.</p>
+                <img class="graph" src="images/word_freq.png">
             </div>
-            <!-- Kr Rating END-->
-            <div class="graph-box">
-                <h3>Average Rating between Different Versions</h3>
-                <img class="graph" src="images/version_rate.png">
-                <p>Compared with other versions in Asia, Korean Drama 'Playful Kiss'(known as '2010 KR' in chart below) is not the most sucessful one in Asia. With average rating 7.4 from MyDramaList site, it is far behide 2015 TH, 2013 JP, even 2005 TW,
-                    which is released 5 years earlier than it.
-                </p>
-            </div>
-            <!-- Version Rating END-->
-            <div class="graph-box">
-                <h3>Wathcers Feedback Rate between Different Versions</h3>
-                <img class="graph" src="images/feedback_rate.png">
-                <p>However, 2010 KR is watched by most users on MyDramaList compared with other 4, and the percentage of rating is also higher than the rest.</p>
-            </div>
-            <!-- Rating feedbacks END-->
-
-            <div class="graph-box">
-                <h3>Summary</h3>
-                <p>'Playful Kiss(2010)' is a widely wathced and well-known Korean drama but is not liked by watchers.</p>
-                <p>The reason might be: it has great cast to attrack people to watch, however, it turns out disappointing after watching due to poor adaptation and plot.</p>
-            </div>
+            <!-- Words Freq END-->
         </div>
 
     </section>
@@ -141,7 +140,27 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-        // script start here
+        $(document).ready(function() {
+
+            var scrollDown = $('#scroll-down'),
+                page = $('html, body'),
+                slide = $('#three'),
+                viewportHeight = $(window).height();
+
+            $(function() {
+                windowResize();
+            });
+
+            $(scrollDown).click(function(event) {
+                var currentSlideHeight = $(slide).outerHeight();
+
+                page.animate({
+                    scrollTop: page.scrollTop() + currentSlideHeight,
+                }, 700);
+                //Prevents the # from the link appearing in the url.
+                event.preventDefault();
+            });
+        });
     </script>
 
 </body>
