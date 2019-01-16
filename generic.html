@@ -101,13 +101,6 @@
     <script src="assets/js/main.js"></script>
     <script>
         // load csv data to web page
-        function format_link(link) {
-            if (link)
-                return "<a href='" + link + "' target='_blank'>" + link + "</a>";
-            else
-                return "";
-        }
-
         CsvToHtmlTable.init({
             csv_path: 'assets/data/review_new.csv',
             element: 'table-container',
@@ -118,10 +111,7 @@
             },
             datatables_options: {
                 "paging": false
-            },
-            custom_formatting: [
-                [4, format_link]
-            ]
+            }
         });
     </script>
 
