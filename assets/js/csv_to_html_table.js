@@ -1,7 +1,7 @@
 var CsvToHtmlTable = CsvToHtmlTable || {};
 
 CsvToHtmlTable = {
-    init: function (options) {
+    init: function(options) {
         options = options || {};
         var csv_path = options.csv_path || "";
         var el = options.element || "table-container";
@@ -10,7 +10,7 @@ CsvToHtmlTable = {
         var datatables_options = options.datatables_options || {};
         var custom_formatting = options.custom_formatting || [];
         var customTemplates = {};
-        $.each(custom_formatting, function (i, v) {
+        $.each(custom_formatting, function(i, v) {
             var colIdx = v[0];
             var func = v[1];
             customTemplates[colIdx] = func;
@@ -21,7 +21,7 @@ CsvToHtmlTable = {
         $containerElement.empty().append($table);
 
         $.when($.get(csv_path)).then(
-            function (data) {
+            function(data) {
                 var csvData = $.csv.toArrays(data, csv_options);
                 var $tableHead = $("<thead></thead>");
                 var csvHeaderRow = csvData[0];
@@ -39,11 +39,11 @@ CsvToHtmlTable = {
                     for (var colIdx = 0; colIdx < csvData[rowIdx].length; colIdx++) {
                         var $tableBodyRowTd = $("<td></td>");
                         var cellTemplateFunc = customTemplates[colIdx];
-                        if (cellTemplateFunc) {
-                            $tableBodyRowTd.html(cellTemplateFunc(csvData[rowIdx][colIdx]));
-                        } else {
-                            $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
-                        }
+                        //if (cellTemplateFunc) {
+                        //    $tableBodyRowTd.html(cellTemplateFunc(csvData[rowIdx][colIdx]));
+                        //} else {
+                        $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
+                        //}
                         $tableBodyRow.append($tableBodyRowTd);
                         $tableBody.append($tableBodyRow);
                     }
@@ -53,7 +53,7 @@ CsvToHtmlTable = {
                 $table.DataTable(datatables_options);
 
                 if (allow_download) {
-                    $containerElement.append("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Download as CSV</a></p>");
+                    $containerElement.append("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-cloud-download'></i> Download as CSV</a></p>");
                 }
             });
     }
